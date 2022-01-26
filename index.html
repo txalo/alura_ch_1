@@ -21,7 +21,11 @@
         </header>
         <main class="row">
             <section id="entrada-texto" class="col s12 m6 xl8">
-                <textarea id="txt-entrada" class="materialize-textarea" placeholder="Ingrese el texto"></textarea>
+                <div class="">
+                    <textarea id="txt-entrada" class="materialize-textarea" placeholder="Ingrese el texto"></textarea>
+                    <a id="btn-encriptar" class="waves-effect btn-small light-blue lighten-4" style="color: #1A374D;">Encriptar</a>
+                    <a id="btn-desencriptar" class="waves-effect btn-small blue darken-4">Desencriptar</a>
+                </div>
             </section>
             <section id="salida-texto" class="col s12 m6 xl4">
                 <div id="txt-salida">
@@ -31,7 +35,9 @@
                     <p>
                         Ningun mensaje para codificar.
                     </p>
+                    <a class="waves-effect white btn-small" style="color: #1A374D;">Copiar</a>
                 </div>
+                
             </section>
         </main>
     </div>

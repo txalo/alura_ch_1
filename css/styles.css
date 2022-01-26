@@ -1,25 +1,26 @@
 body{
-    background-color: #B1D0E0;
+    background-color: #1A374D;
     color: white;
 }
 
 #principal{
-    border: 1px solid white;
-    background: #1A374D;
+    
     color: #B1D0E0;
 }
 
 #salida-texto, #entrada-texto{    
-    height: 25rem;    
+    height: 25rem;
+    
 }
 
 #txt-entrada{
     height: 100%;
-    background-color: white;
+    background: rgba(255, 255,255, 0.1);
     padding: 1rem;
-    color: #1A374D;
+    color: white;
     font-weight: 600;
     border-radius: 5px;
+    border-bottom: none !important;
 }
 
 #txt-salida{
@@ -30,4 +31,6 @@ body{
     color: #1A374D;
     font-size: 1.1rem;
     font-weight: 600;
+    border-radius: 5px;
 }
+
