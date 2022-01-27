@@ -16,7 +16,10 @@ const codigo = [
 
 const $btnEncriptar = document.querySelector("#btn-encriptar");
 const $btnDesencriptar = document.querySelector("#btn-desencriptar");
+const $btnCopiar = document.querySelector("#btn-copiar");
 const $txtEntrada = document.querySelector("#txt-entrada");
+const $txtSalida = document.querySelector("#txt-salida");
+
 
 
   
@@ -40,24 +43,23 @@ function desencriptar(mensaje) {
 
   return mensajeCodificado;
 }
-/*
-console.log("Banana = " + encriptar("banana"));
-console.log(
-  desencriptar(
-    "fenterlimescimesdaidenters poberr enternfrenterntair enterstenter dentersaifimesober y haibenterrlober cobernclufatimesdober cobern enterximestober!"
-  )
-);
-*/
 
 function validarTexto (texto){
-  // /[a-z]+/g
-  let regAcentos = new RegExp(/[áéíóú]+/g)
-  let regMayusculas = new RegExp(/[A-Z]+/g)
-  return (texto.search(regAcentos) == -1 && texto.search(regMayusculas) == -1)
+  let regMin = new RegExp("^[a-z ]+$")
+  return (regMin.exec(texto.trim())) ? true : false
 }
 
-console.log ("hOla " + validarTexto("hOla"));
-console.log ("hola " + validarTexto("hola") );
-console.log ("hóla " + validarTexto("hóla") )
-$btnEncriptar.addEventListener("click", () => { if (validarTexto($txtEntrada.value)) console.log(encriptar($txtEntrada.value))});
+function mostrarMensaje (mensaje){
+  $txtSalida.querySelector("#resultado").innerHTML = 
+  ` <p>
+      ${mensaje}
+    </p>    
+  `
+  $btnCopiar.classList.remove("disabled");
+}
+
+$btnEncriptar.addEventListener("click", () => { 
+  if (validarTexto($txtEntrada.value)) 
+    mostrarMensaje (encriptar($txtEntrada.value))
+});
 
