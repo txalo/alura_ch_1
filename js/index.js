@@ -19,6 +19,7 @@ const $btnDesencriptar = document.querySelector("#btn-desencriptar");
 const $btnCopiar = document.querySelector("#btn-copiar");
 const $txtEntrada = document.querySelector("#txt-entrada");
 const $txtSalida = document.querySelector("#txt-salida");
+const $error = document.querySelector("#error");
 
 
 
@@ -59,7 +60,18 @@ function mostrarMensaje (mensaje){
 }
 
 $btnEncriptar.addEventListener("click", () => { 
+  $error.className = "oculta"  
   if (validarTexto($txtEntrada.value)) 
     mostrarMensaje (encriptar($txtEntrada.value))
+  else
+    $error.className = "visible"
+});
+
+$btnDesencriptar.addEventListener("click", () => { 
+  $error.className = "oculta"
+  if (validarTexto($txtEntrada.value)) 
+    mostrarMensaje (desencriptar($txtEntrada.value))
+  else
+    $error.className = "visible"
 });
 
