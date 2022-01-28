@@ -35,13 +35,9 @@ function encriptar(mensaje) {
 
 function desencriptar(mensaje) {
   let mensajeCodificado = mensaje;
-  for (let i = codigo.length - 1; i >= 0; i--) {
-    mensajeCodificado = mensajeCodificado.replaceAll(
-      codigo[i][1],
-      codigo[i][0]
-    );
+  for (let clave of codigo) {
+    mensajeCodificado = mensajeCodificado.replaceAll(clave[1], clave[0]);
   }
-
   return mensajeCodificado;
 }
 
@@ -59,6 +55,15 @@ function mostrarMensaje (mensaje){
   $btnCopiar.classList.remove("disabled");
 }
 
+function copiar() {
+  let rng = document.createRange();
+  rng.selectNode($txtSalida);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(rng);
+  document.execCommand('copy');
+  window.getSelection().removeAllRanges();
+}
+
 $btnEncriptar.addEventListener("click", () => { 
   $error.className = "oculta"  
   if (validarTexto($txtEntrada.value)) 
@@ -74,4 +79,9 @@ $btnDesencriptar.addEventListener("click", () => {
   else
     $error.className = "visible"
 });
+
+$btnCopiar.addEventListener("click", () => {
+  if (!$btnCopiar.classList.contains ("disable"))
+    copiar();
+})
 
